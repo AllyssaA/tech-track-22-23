@@ -41,20 +41,28 @@ const tooltip = d3.select('#graph')
 .style("border-radius", "5px")
 .style("padding", "5px")
 
-const mouseover = function(d) {
+const mouseover = function(e, d) {
   tooltip
    .style("opacity", 1)
   d3.select(this)
    .style("stroke", "black")
    .style("opacity", 1)
-
+  console.log(d)
 }
 
-var mousemove = function(d) {
+const mousemove = function(d) {
   tooltip
-    .html("The exact value of<br>this cell is: " + d.value)
+    .html("Materiaal: " + d.material)
     .style("left", (d3.pointer(this)[0]+70) + "px")
     .style("top", (d3.pointer(this)[1]) + "px")
+}
+
+const mouseleave = function(d) {
+  tooltip
+      .style("opacity", 0)
+    d3.select(this)
+      .style("stroke", "none")
+      .style("opacity", 0.8)
 }
 
 
@@ -87,7 +95,8 @@ d3.json(API_URL)
       .scaleLinear()
       .domain(d3.extent(data.map((d) => d.value)))
       .domain([0, d3.max(data.map((d) => d.value))])
-      .range([height, 0]);
+      .range([height, 0])
+      .nice();
     svg.append('g').call(d3.axisLeft(y))
 
     svg
@@ -100,8 +109,10 @@ d3.json(API_URL)
         .attr('width', x.bandwidth())
         .attr('height', (d) => height - y(d.value))
         .attr('fill', '#ffcc00')
+        
         .on('mouseover', mouseover)
         .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
         
 
       
