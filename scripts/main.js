@@ -31,38 +31,46 @@ const svg = d3
   .append('g')
   .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
-const tooltip = d3.select('#graph')
-.append("div")
-.style("opacity", 0)
-.attr("class", "tooltip")
-.style("background-color", "white")
-.style("border", "solid")
-.style("border-width", "2px")
-.style("border-radius", "5px")
-.style("padding", "5px")
+// const tooltip = d3.select('#graph')
+// .append("div")
+// .style("opacity", 0)
+// .attr("class", "tooltip")
+// .style("background-color", "white")
+// .style("border", "solid")
+// .style("border-width", "2px")
+// .style("border-radius", "5px")
+// .style("padding", "5px")
 
 const mouseover = function(e, d) {
-  tooltip
-   .style("opacity", 1)
-  d3.select(this)
-   .style("stroke", "black")
-   .style("opacity", 1)
+  // tooltip
+  d3
+    .select("#tooltip")
+    .transition()
+    .duration(175)
+    .style("opacity", 1)
+    .text(`${d.key}: ${d.value}`)
   console.log(d)
 }
 
-const mousemove = function(d) {
-  tooltip
-    .html("Materiaal: " + d.material)
-    .style("left", (d3.pointer(this)[0]+70) + "px")
-    .style("top", (d3.pointer(this)[1]) + "px")
+const mousemove = function(e) {
+  // tooltip
+    d3
+    .select("#tooltip")
+    .style("left", e.pageX + 15 + "px")
+    .style("top", e.pageY + 15 + "px")
+    // .html("Materiaal: " + d.key +  " aantal: " + d.value)
+    // .style("left", (d3.pointer(this)[0]+70) + "px")
+    // .style("top", (d3.pointer(this)[1]) + "px")
+    
 }
 
-const mouseleave = function(d) {
-  tooltip
-      .style("opacity", 0)
-    d3.select(this)
-      .style("stroke", "none")
-      .style("opacity", 0.8)
+const mouseleave = function(e, d) {
+  // tooltip
+    //   .style("opacity", 0)
+    // d3.select(this)
+    //   .style("stroke", "none")
+    //   .style("opacity", 0.8)
+    d3.select("#tooltip").style("opacity", 0)
 }
 
 
@@ -112,11 +120,8 @@ d3.json(API_URL)
         
         .on('mouseover', mouseover)
         .on('mousemove', mousemove)
-        .on('mouseleave', mouseleave)
-        
-
-      
-
-
+        .on('mouseout', mouseleave)
   })
+
+  d3.select("body").on("touchend", e => d3.select("#tooltip").style("opacity", 0));
 
