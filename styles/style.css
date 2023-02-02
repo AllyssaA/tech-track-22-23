@@ -1,6 +1,8 @@
 body {
   background: white;
   font-family: sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #484545;
 }
 
 #tooltip {
@@ -17,16 +19,22 @@ body {
 h1 {
   display: flex;
   justify-content: center;
+  margin: 1em;
+}
+
+.content{
+  text-align: center;
 }
 
 p{
   text-align: center;
+  /* margin: 0 10rem 2rem 10rem ; */
+  width: 50%;
+  margin: 0 auto;
 }
 
 svg#graph {
   height: 40rem;
-  /* display: flex;
-  justify-content: center; */
 }
 
 label {
@@ -63,4 +71,13 @@ optgroup {
 .graph{
   display: grid;
   gap: 2em;
+}
+
+footer{
+  height: 5rem;
+  display: grid;
+}
+
+footer p{
+  align-self: flex-end;
 }

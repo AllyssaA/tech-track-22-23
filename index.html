@@ -9,17 +9,35 @@
   <body>
     <!-- <img src="./images/tt.png" alt="Tech Track logo" /> -->
     <main>
-      <h1>Materialen & Technieken</h1>
+      <h1>Rijksmuseum kunstenaars</h1>
       <div class="content">
         <p>
           Voor Tech Track kreeg ik de opdracht om met D3.js een datavisualisatie
-          te maken. Ik heb ervoor gekozen om de API van het Rijksmuseum als
-          dataset te gebruiken.
+          te maken. Ik heb ervoor gekozen om het materiaal en de technieken van
+          bekende kunstenaars te vergelijken. Voor de data heb ik een API
+          gebruikt van het
+          <a
+            href="https://data.rijksmuseum.nl/object-metadata/api/"
+            alt="Link Rijksmuseum API" target="_blank"
+            >Rijksmuseum</a>.
+        </p>
+
+        <h2>Materiaal & Techniek</h2>
+        <p>
+          Bij kunstenaars wordt er vaak gedacht aan wat ze hebben gemaakt, aan
+          de kunst en aan de uiteindelijke kunstwerk. Ik vond het interessant om
+          uit te vinden wat voor verschillende materiaal en technieken er
+          gebruikt worden om tot iets te komen waar mensen stil bij staan.
+        </p>
+        <br \>
+        <p>
+          Hieronder in de barchart kun je het materiaal en technieken vergelijken die gebruikt zijn 
+          door o.a. Rembrandt van Rijn, Vincent van Gogh, Jacob Ruisdael, Johannes Vermeer.
         </p>
         <div id="tooltip"></div>
         <section class="container-graph">
           <div class="dropdown">
-            <label for="artists">Kies een kunstenaar:</label>
+            <label for="artists">Kies een kunstenaar</label>
             <select name="artists" id="artists">
               <option value="rembrandt">Rembrandt van Rijn</option>
               <option value="vincent">Vincent van Gogh</option>
@@ -39,7 +57,10 @@
           </div>
         </section>
       </div>
-    </main>
+    </main> 
+    <footer>
+      <p>Gemaakt door <a href="https://github.com/AllyssaA/tech-track-22-23" target="_blank">AllyssaA</a> | Tech Track 2022 - 2023</p>
+    </footer>
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
