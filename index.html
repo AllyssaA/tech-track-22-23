@@ -4,17 +4,39 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rijksmuseum</title>
+    <title>Rijksmuseum materialen & technieken</title>
   </head>
   <body>
-    <h1>Rijksmuseum gebruikte materialen</h1>
-
     <!-- <img src="./images/tt.png" alt="Tech Track logo" /> -->
-
-    <p></p>
-    <div id="graph"></div>
-    <div id="tooltip"></div>
-    
+    <main>
+      <h1>Materialen & Technieken</h1>
+      <div class="content">
+        <p>
+          Voor Tech Track kreeg ik de opdracht om met D3.js een datavisualisatie
+          te maken. Ik heb ervoor gekozen om de API van het Rijksmuseum hiervoor
+          te gebruiken.
+        </p>
+        <section class="container-graph">
+          <div class="dropdown">
+            <label for="artists">Kies een kunstenaar:</label>
+            <select name="artists" id="artists">
+              <option value="rembrandt">Rembrandt van Rijn</option>
+              <option value="vincent">Vincent van Gogh</option>
+              <option value="jacob">Jacob van Ruisdael</option>
+              <option value="johannes">Johannes Vermeer</option>
+            </select>
+          </div>
+          <svg id="graph"></svg>
+          <div id="tooltip"></div>
+          <form id="optionsRadioButtons">
+            <input type="radio" id="material" name="rvr" value="4" checked />
+            <label for="material">Materiaal</label>
+            <input type="radio" id="technique" name="rvr" value="5" />
+            <label for="technique">Techniek</label>
+          </form>
+        </section>
+      </div>
+    </main>
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
