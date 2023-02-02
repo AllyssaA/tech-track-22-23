@@ -13,9 +13,10 @@
       <div class="content">
         <p>
           Voor Tech Track kreeg ik de opdracht om met D3.js een datavisualisatie
-          te maken. Ik heb ervoor gekozen om de API van het Rijksmuseum hiervoor
-          te gebruiken.
+          te maken. Ik heb ervoor gekozen om de API van het Rijksmuseum als
+          dataset te gebruiken.
         </p>
+        <div id="tooltip"></div>
         <section class="container-graph">
           <div class="dropdown">
             <label for="artists">Kies een kunstenaar:</label>
@@ -26,14 +27,16 @@
               <option value="johannes">Johannes Vermeer</option>
             </select>
           </div>
-          <svg id="graph"></svg>
-          <div id="tooltip"></div>
-          <form id="optionsRadioButtons">
-            <input type="radio" id="material" name="rvr" value="4" checked />
-            <label for="material">Materiaal</label>
-            <input type="radio" id="technique" name="rvr" value="5" />
-            <label for="technique">Techniek</label>
-          </form>
+
+          <div class="graph">
+            <svg id="graph"></svg>
+            <form id="optionsRadioButtons">
+              <input type="radio" id="material" name="rvr" value="4" checked />
+              <label for="material">Materiaal</label>
+              <input type="radio" id="technique" name="rvr" value="5" />
+              <label for="technique">Techniek</label>
+            </form>
+          </div>
         </section>
       </div>
     </main>
