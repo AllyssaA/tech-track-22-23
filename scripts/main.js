@@ -25,7 +25,7 @@ const color = d3.scaleLinear().domain([0, 100]).range(["white", "lightblue"]);
 const y = d3.scaleLinear().range([chartHeight, 0]);
 const yAs = svg.append("g").attr("class", "as_y");
 
-const x = d3.scaleBand().range([0, chartWidth]);
+const x = d3.scaleBand().range([0, chartWidth]).padding(0.05);
 const xAs = svg
   .append("g")
   .attr("transform", `translate(0, ${chartHeight})`)
@@ -63,7 +63,7 @@ async function drawChart(dataset) {
     .style("text-anchor", "end")
     .style("font-size", "13px");
 
-  y.domain([0, d3.max(dataset.map((d) => d.value + 10))]);
+  y.domain([0, d3.max(dataset.map((d) => d.value))]);
   yAs.transition().duration(500).call(d3.axisLeft(y));
 
   let content = svg.selectAll("rect").data(dataset);
