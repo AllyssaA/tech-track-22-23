@@ -21,13 +21,13 @@ Clone the project
 
 `git clone https://github.com/AllyssaA/tech-track-22-23.git`
 
-Install locally
+Local install
 
 ```jsx
 npm install
 ```
 
-To run this project locally use
+Run this project on your machine
 
 ```jsx
 npm run dev
